@@ -1,0 +1,20 @@
+# i3blocks configuration file
+# scrptman.de
+#
+# The i3blocks man page describes the usage of the binary,
+# and its website describes the configuration:
+#
+#     https://vivien.github.io/i3blocks
+
+
+# Global properties
+separator=true
+separator_block_width=15
+
+[bat]
+command=echo "BAT0: $(cat /sys/class/power_supply/BAT0/capacity)%"
+interval=60
+
+[time]
+command=date '+W%V:D%u %x %X'
+interval=1
