@@ -16,12 +16,12 @@ Xft.lcdfilter: lcddefault
 
 
 URxvt.depth: 32
-#URxvt*termName: screen-256color
+! #URxvt*termName: screen-256color
 URxvt*geometry: 240x84
-#URxvt.loginShell: true
+! `#URxvt.loginShell: true
 URxvt.utf8: true
 URxvt.locale: true
-URxvt.font:	xft:monospace:pixelsize=16:style=regular
+URxvt.font:	xft:Ubuntu:pixelsize=16:style=regular
 URxvt.boldFont: xft:monospace:pixelsize=14:style=bold
 
 URxvt.perl-ext-common:	...,font-size
