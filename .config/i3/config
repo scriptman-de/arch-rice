@@ -17,7 +17,8 @@ set $mod Mod4
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
-font pango:DejaVu Sans Mono 12 
+#font pango:DejaVu Sans Mono 12 
+font pango:Ubuntu 12
 
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
 # they are included here as an example. Modify as you see fit.
@@ -235,10 +236,10 @@ bar {
 }
 
 # autostart commands
-exec_always --no-startup-id xrandr --output eDP1 --mode 3200x1800 --scale 0.7x0.7
-exec_always --no-startup-id feh --bg-scale /home/martin/Downloads/pexels-maxime-francis-2246476.jpg
+exec_always --no-startup-id xrandr --output eDP1 --mode 2560x1440 
+exec_always --no-startup-id feh --bg-scale /home/martin/.config/wallpaper/current.jpg
 
-exec setxkbmap -layout us,de -option 'grp:cmd_shift_toggle'
-exec --no-startup-id picom &
+exec_always setxkbmap -layout us,de -option 'grp:cmd_shift_toggle'
+# exec --no-startup-id picom &
 exec --no-startup-id pasystray &
 exec --no-startup-id cbatticon &
