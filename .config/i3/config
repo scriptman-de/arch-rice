@@ -168,6 +168,8 @@ bindsym $mod+Shift+0 move container to workspace number $ws10
 # Alt+Tab-like behavior
 bindsym Mod1+Tab workspace back_and_forth
 bindsym Mod1+Shift+Tab workspace next
+bindsym Mod4+Ctrl+Right workspace next
+bindsym Mod4+Ctrl+Left workspace prev
 
 # move window to workspace
 #assign [class="Chromium"] $ws2
@@ -175,6 +177,7 @@ bindsym Mod1+Shift+Tab workspace next
 #assign [class="jetbrains-phpstorm"] $ws3
 for_window [class="jetbrains-phpstorm" title="win0"] floating enable
 for_window [class="pavucontrol" title="Pavucontrol"] floating enable
+for_window [urgent=latest] focus
 
 bindsym $mod+F3 exec --no-startup-id /home/martin/PhpStorm/PhpStorm-202.8194.11/bin/phpstorm.sh
 bindsym $mod+F2 exec --no-startup-id chromium
@@ -236,10 +239,11 @@ bar {
 }
 
 # autostart commands
-exec_always --no-startup-id xrandr --output eDP1 --mode 2560x1440 
+exec_always --no-startup-id xrandr --output eDP1 --primary --mode 2560x1440 
 exec_always --no-startup-id feh --bg-scale /home/martin/.config/wallpaper/current.jpg
 
-exec_always setxkbmap -layout us,de -option 'grp:cmd_shift_toggle'
+#exec_always setxkbmap -layout us,de -option 'grp:cmd_shift_toggle'
 # exec --no-startup-id picom &
-exec --no-startup-id pasystray &
+# exec --no-startup-id pasystray &
+exec --no-startup-id volumeicon
 exec --no-startup-id cbatticon &
