@@ -16,17 +16,69 @@ Xft.lcdfilter: lcddefault
 
 
 URxvt.depth: 32
-! #URxvt*termName: screen-256color
+URxvt*termName: xterm-256color
 URxvt*geometry: 240x84
-! `#URxvt.loginShell: true
+!#URxvt.loginShell: true
 URxvt.utf8: true
 URxvt.locale: true
-URxvt.font:	xft:Ubuntu:pixelsize=16:style=regular
-URxvt.boldFont: xft:monospace:pixelsize=14:style=bold
-
+URxvt.font:	xft:Cascadia Code PL:size=16:style=regular
+!URxvt.font: xft:Sans:size=14:style=regular
+URxvt.boldFont: xft:Cascadia Code PL:size=16:style=bold
+URxvt.scrollstyle: Plain
+URxvt.scrollBar: true
+URxvt.scrollBar_right: true
+URxvt.urgentOnBell: true
+URxvt.saveLines: 5000
+URxvt.visualBell: true
 URxvt.perl-ext-common:	...,font-size
 URxvt.keysym.C-Up:	perl:font-size:increase
 URxvt.keysym.C-Down:	perl:font-size:decrease
+!URxvt.keysym.Shift-Control-C: perl:clipboard:copy
+!URxvt.keysym.Shift-Control-V: perl:clipboard:paste
+! Restore Ctrl+Shift+(c|v)
+URxvt.keysym.Shift-Control-V: eval:paste_clipboard
+URxvt.keysym.Shift-Control-C: eval:selection_to_clipboard
+URxvt.iso14755: false
+URxvt.iso14755_52: false
+
+! special
+!*.foreground:   #aaaaaa
+!*.background:   #000000
+!*.cursorColor:  #aaaaaa
+
+! ! black
+!*.color0:       #202020
+!*.color8:       #606060
+
+! ! red
+!*.color1:       #ff6565
+!*.color9:       #ff8d8d
+
+! ! green
+!*.color2:       #93d44f
+!*.color10:      #c8e7a8
+
+! ! yellow
+!*.color3:       #eab93d
+!*.color11:      #ffc123
+
+! ! blue
+!*.color4:       #204a87
+!*.color12:      #3465a4
+
+! ! magenta
+!*.color5:       #ce5c00
+!*.color13:      #f57900
+
+! ! cyan
+!*.color6:       #89b6e2
+!*.color14:      #46a4ff
+
+! ! white
+!*.color7:       #cccccc
+!*.color15:      #ffffff
+
+
 
 ! Dracula Xresources palette
 *.foreground: #F8F8F2
@@ -48,3 +100,4 @@ URxvt.keysym.C-Down:	perl:font-size:decrease
 *.color7:     #BFBFBF
 *.color15:    #E6E6E6
 
+xset r rate 200 60 &
