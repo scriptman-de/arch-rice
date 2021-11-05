@@ -11,10 +11,44 @@
 separator=true
 separator_block_width=15
 
-[bat]
-command=echo "BAT0: $(cat /sys/class/power_supply/BAT0/capacity)%"
-interval=60
+
+# [i3-focusedwindow]
+# label=WND:
+# command=$HOME/.config/i3blocks/i3-focusedwindow 40
+# interval=persist
+
+
+[iface]
+command=$HOME/.config/i3blocks/iface
+#LABEL=wlan0:
+#IFACE=wlan0
+#ADDRESS_FAMILY=inet6?
+color=#00FF00
+interval=30
+# set this to 1 to display the name of the connected WIFI interface instead of the IP address.
+display_wifi_name=0
+
+[memory]
+command=$HOME/.config/i3blocks/mem
+label=MEM 
+interval=30
+
+#[bat]
+#command=echo "BAT0: $(cat /sys/class/power_supply/BAT0/capacity)%"
+#interval=60
+
+[xkb_layout]
+command=$HOME/.config/i3blocks/xkb_layout
+font=monospace
+font_weight=bold
+interval=persist
+markup=pango
 
 [time]
-command=date '+W%V:D%u %x %X'
-interval=1
+command=date '+W%V:D%u %R'
+interval=5
+
+[battery]
+command=$HOME/.config/i3blocks/battery
+interval=30
+label=BAT
