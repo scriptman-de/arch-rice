@@ -98,10 +98,10 @@ bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
-bindsym $mod+Shift+space floating toggle
+bindsym $mod+Control+f floating toggle
 
 # change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
+bindsym $mod+Shift+f focus mode_toggle
 
 # focus the parent container
 bindsym $mod+a focus parent
@@ -110,8 +110,8 @@ bindsym $mod+a focus parent
 bindsym $mod+d focus child
 
 # gaps
-gaps outer 10
-gaps inner 10
+gaps outer 5
+gaps inner 5
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
@@ -158,11 +158,13 @@ bindsym $mod+Shift+r restart
 #bindsym $mod+Control+q exec "i3-nagbar -t warning -m 'Shutdown System?' -B 'Shutdown' 'poweroff'"
 #bindsym $mod+Control+r exec systemctl reboot
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+#bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
 # window settings
+for_window [class="^.*"] border pixel 0
 for_window [class="jetbrains-phpstorm" title="win0"] floating enable
 for_window [class="TeamViewer"] floating enable
+for_window [class="XCalc"] floating enable
 for_window [urgent=latest] focus
 
 # Alt+Tab behavior
@@ -170,7 +172,9 @@ bindsym Mod1+Tab workspace back_and_forth
 
 # shortcuts
 bindsym $mod+Control+b exec google-chrome-stable
-bindsym $mod+Control+f exec pcmanfm
+bindsym $mod+Control+Shift+b exec "google-chrome-stable --incognito"
+bindsym $mod+Shift+e exec thunar
+bindsym $mod+Control+e exec "/opt/enpass/Enpass showassistant"
 
 ####
 #
@@ -256,10 +260,26 @@ mode "$mode_system" {
 
 bindsym $mod+Escape mode "$mode_system"
 
+
+set $config_edit Edit configs:  (i)3
+
+mode "$config_edit" {
+  bindsym i exec 'terminator -x nvim ~/.config/i3/config', mode "default"
+
+  bindsym Return mode "default"
+  bindsym Escape mode "default"
+}
+
+bindsym $mod+Control+c mode "$config_edit"
+
+
 exec --no-startup-id "setxkbmap -layout us,de -option grp:win_space_toggle"
-exec --no-startup-id cbatticon &
+exec --no-startup-id "xset r rate 250 125"
+exec --no-startup-id "xset s off"
+exec --no-startup-id "xset dpms off"
+#exec --no-startup-id cbatticon &
 exec --no-startup-id nitrogen --restore &
 exec --no-startup-id volumeicon &
-exec --no-startup-id picom &
-exec --no-startup-id blueman-applet &
+#exec --no-startup-id picom &
+#exec --no-startup-id blueman-applet &
 exec --no-startup-id dunst &
