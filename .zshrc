@@ -107,6 +107,7 @@ export HISTCONTROL=ignoreboth:erasedups
 setopt INC_APPEND_HISTORY
 setopt HIST_IGNORE_DUPS
 setopt EXTENDED_HISTORY
+setopt HIST_IGNORE_SPACE
 #export HISTSIZE= HISTFILESIZE=
 
 alias vim="nvim"
@@ -115,3 +116,10 @@ alias ll='ls -Faho'
 alias dir='ls -Flah'
 alias l='ls -CF'
 alias la='ls -A'
+
+xset r rate 200 60
+
+# system vars
+export GOPATH="/home/martin/work/golang"
+export EDITOR=nvim
+export BROWSER=google-chrome-stable
